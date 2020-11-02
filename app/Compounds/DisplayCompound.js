@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import DisplaySectionWrapper from "../Components/Display/DisplaySectionWrapper"
 import GetData from "../CustomHooks/GetData"
 import { makeStyles } from "@material-ui/core/styles"
@@ -9,6 +9,8 @@ import TableContainer from "@material-ui/core/TableContainer"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
+import { SearchTermContext } from "../Context/SearchTermContext"
+import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 
 export default DisplayCompound
 
@@ -23,14 +25,16 @@ function DisplayCompound({ children }) {
   const classes = useStyles()
   const { data } = GetData("data")
 
+  const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
+  const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
+    CheckBoxFilterTermContext
+  )
+
   return (
     <>
       <DisplaySectionWrapper>
         <TableContainer component={Paper} elevation={10}>
-          <Table
-            size="small"
-            aria-label="Countries Table"
-          >
+          <Table size="small" aria-label="Countries Table">
             <TableHead>
               <TableRow>
                 <TableCell className={classes.header}>Country Name</TableCell>
@@ -42,20 +46,68 @@ function DisplayCompound({ children }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.capital}</TableCell>
-                  <TableCell>{item.region}</TableCell>
-                  <TableCell>{item.population}</TableCell>
-                  <TableCell>
-                    {item.languages.map((lang) => `${lang.name}, `)}
-                  </TableCell>
-                  <TableCell>
-                    {item.timezones.toString().split(",").join(" ")}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {searchTerm !== "" && checkBoxFilterTerm === "languages" //case-8
+                ? data
+                    .filter((item) =>
+                      item.languages
+                        .map((lang) => lang.name)
+                        .toString()
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== "" && //case-9
+                  (checkBoxFilterTerm === "name" ||
+                    checkBoxFilterTerm === "capital")
+                ? data
+                    .filter((item) =>
+                      item[checkBoxFilterTerm]
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm === "" //case-12
+                ? data.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{item.name}</TableCell>
+                      <TableCell>{item.capital}</TableCell>
+                      <TableCell>{item.region}</TableCell>
+                      <TableCell>{item.population}</TableCell>
+                      <TableCell>
+                        {item.languages.map((lang) => `${lang.name}, `)}
+                      </TableCell>
+                      <TableCell>
+                        {item.timezones.toString().split(",").join(" ")}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                : null}
             </TableBody>
           </Table>
         </TableContainer>

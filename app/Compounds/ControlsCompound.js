@@ -1,27 +1,64 @@
-import React from "react"
-import CheckBox from '../Components/Controls/CheckBox'
-import ControlsSectionWrapper from '../Components/Controls/ControlsSectionWrapper'
-import FiltersWrapper from '../Components/Controls/FiltersWrapper'
-import RegionFilterWrapper from '../Components/Controls/RegionFilterWrapper'
-import SearchCheckBoxesWrapper from '../Components/Controls/SearchCheckBoxesWrapper'
-import SearchField from '../Components/Controls/SearchField'
-import SearchFieldWrapper from '../Components/Controls/SearchFieldWrapper'
-import SearchFilterWrapper from '../Components/Controls/SearchFilterWrapper'
+import React, { useState, useContext } from "react"
+import CheckBox from "../Components/Controls/CheckBox"
+import ControlsSectionWrapper from "../Components/Controls/ControlsSectionWrapper"
+import FiltersWrapper from "../Components/Controls/FiltersWrapper"
+import RegionFilterWrapper from "../Components/Controls/RegionFilterWrapper"
+import SearchCheckBoxesWrapper from "../Components/Controls/SearchCheckBoxesWrapper"
+import SearchField from "../Components/Controls/SearchField"
+import SearchFieldWrapper from "../Components/Controls/SearchFieldWrapper"
+import SearchFilterWrapper from "../Components/Controls/SearchFilterWrapper"
 import Text from "../Components/Controls/Text"
 import Title from "../Components/Controls/Title"
 import { Grid, Box } from "@material-ui/core"
-import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrapper'
-import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
-import FromField from '../Components/Controls/FromField'
-import ToFieldWrapper from '../Components/Controls/ToFieldWrapper'
+import PopulationFilterWrapper from "../Components/Controls/PopulationFilterWrapper"
+import FromFieldWrapper from "../Components/Controls/FromFieldWrapper"
+import FromField from "../Components/Controls/FromField"
+import ToFieldWrapper from "../Components/Controls/ToFieldWrapper"
 import ToField from "../Components/Controls/ToField"
-import ClearButtonWrapper from '../Components/Controls/ClearButtonWrapper'
+import ClearButtonWrapper from "../Components/Controls/ClearButtonWrapper"
 import ClearButton from "../Components/Controls/ClearButton"
-
+import { SearchTermContext } from "../Context/SearchTermContext"
+import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 
 export default ControlsCompound
 
 function ControlsCompound({ children }) {
+  const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
+  const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
+    CheckBoxFilterTermContext
+  )
+
+  const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
+  const [isCapitalCheckBoxChecked, setIsCapitalCheckBoxChecked] = useState(
+    false
+  )
+  const [isLangCheckBoxChecked, setIsLangCheckBoxChecked] = useState(false)
+
+  function doNameCheckBoxActions() {
+    setIsNameCheckBoxChecked(true)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(false)
+    setCheckBoxFilterTerm("name")
+  }
+
+  function doCapitalCheckBoxActions() {
+    setIsNameCheckBoxChecked(false)
+    setIsCapitalCheckBoxChecked(true)
+    setIsLangCheckBoxChecked(false)
+    setCheckBoxFilterTerm("capital")
+  }
+
+  function doLangCheckBoxActions() {
+    setIsNameCheckBoxChecked(false)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(true)
+    setCheckBoxFilterTerm("languages")
+  }
+
+  function doSearchFieldActions(event) {
+    setSearchTerm(event.target.value)
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -31,12 +68,30 @@ function ControlsCompound({ children }) {
             <SearchFilterWrapper>
               <Text>Search Filter</Text>
               <SearchFieldWrapper>
-                <SearchField />
+                <SearchField
+                  value={searchTerm}
+                  onChange={(event) => doSearchFieldActions(event)}
+                />
               </SearchFieldWrapper>
               <SearchCheckBoxesWrapper>
-                <CheckBox id="name" label="Name" />
-                <CheckBox id="capital" label="Capital" />
-                <CheckBox id="langauge" label="Language" />
+                <CheckBox
+                  id="name"
+                  label="Name"
+                  checked={isNameCheckBoxChecked}
+                  onClick={() => doNameCheckBoxActions()}
+                />
+                <CheckBox
+                  id="capital"
+                  label="Capital"
+                  checked={isCapitalCheckBoxChecked}
+                  onClick={() => doCapitalCheckBoxActions()}
+                />
+                <CheckBox
+                  id="language"
+                  label="Language"
+                  checked={isLangCheckBoxChecked}
+                  onClick={() => doLangCheckBoxActions()}
+                ></CheckBox>
               </SearchCheckBoxesWrapper>
             </SearchFilterWrapper>
           </Grid>
