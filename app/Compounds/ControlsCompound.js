@@ -37,6 +37,13 @@ function ControlsCompound({ children }) {
     false
   )
   const [isLangCheckBoxChecked, setIsLangCheckBoxChecked] = useState(false)
+  const [isAllRegionsChecked, setAllRegionsChecked] = useState(true)
+  const [isAsiaRegionChecked, setIsAsiaRegionChecked] = useState(false)
+  const [isAfricaRegionChecked, setIsAfricaRegionChecked] = useState(false)
+  const [isEuropeRegionChecked, setIsEuropeRegionChecked] = useState(false)
+  const [isAmericasRegionChecked, setIsAmericasRegionChecked] = useState(false)
+  const [isOceaniaRegionChecked, setIsOceaniaRegionChecked] = useState(false)
+  const [isPolarRegionChecked, setIsPolarRegionChecked] = useState(false)
 
   function doNameCheckBoxActions() {
     setIsNameCheckBoxChecked(true)
