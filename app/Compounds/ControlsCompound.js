@@ -19,6 +19,7 @@ import ClearButtonWrapper from "../Components/Controls/ClearButtonWrapper"
 import ClearButton from "../Components/Controls/ClearButton"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
+import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
 
 export default ControlsCompound
 
@@ -26,6 +27,9 @@ function ControlsCompound({ children }) {
   const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
     CheckBoxFilterTermContext
+  )
+  const [regionFilterTerm, setRegionFilterTerm] = useContext(
+    RegionFilterTermContext
   )
 
   const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
