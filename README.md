@@ -12,13 +12,13 @@
 
 Then we should be able to apply 3 levels of filters (individually or combined) to this data.
 
-First level: Search Filter:
+First level: Search Filter:<br>
 Where we can search in the countries name or capital or languages and display only the countries which have the search term in their name or capital or lanaguges.
 
-Second level: Region Filter:
+Second level: Region Filter:<br>
 Where we can filter the countries based on their region.
 
-Third Level: Population Filter:
+Third Level: Population Filter:<br>
 Where we can filter the countries based on their population number.
 </p>
 
@@ -29,9 +29,9 @@ Where we can filter the countries based on their population number.
   - [Start Page](#start-page)
   - [Search Filter](#search-filter)
   - [Region Filter](#region-filter)
-	- [Population Filter](#population-filter)
-	- [All Filters](#all-filters)
-	- [Clear Filters](#clear-filters)
+  - [Population Filter](#population-filter)
+  - [All Filters Combined](#all-filters-combined)
+  - [Clear Filters](#clear-filters)
 - [Technology Used](#technology-used)
 - [How To Use](#how-to-use)
 - [Author](#author)
@@ -40,15 +40,15 @@ Where we can filter the countries based on their population number.
 # Project Walk-Through
 
  # Start Page
+ 
 
 <div align="center"><a name="menu"></a>
 
 ![ScreenShot](/public/img/readme/start.png)
 </div>
 
-In this page, all the filters are set to default state, where all countries are displayed on the screen without any filtration. 
- 
 
+ In this page, all the filters are set to default state, where all countries are displayed on the screen without any filtration. 
 
 
  # Search Filter
@@ -100,11 +100,11 @@ The user can type any 2 numbers and only the countries which have population num
 ![ScreenShot](/public/img/readme/pop.png)
 </div>
 
- # All Filters
+ # All Filters Combined
 
 The user can combine the search, region, and population filters and use it all together. 
 
-Example: if the user type "sa" & used the Name Checkbox & select "Asia Region" & typed "15000" - "500000" in the population fields  , he will get all countries which has "sa" in their name & exist in "Asia" & has population between "15000" - "500000".
+Example: if the user type "al" & used the Name Checkbox & select "Europe Region" & typed "1000" - "3000000" in the population fields  , he will get all countries which has "al" in their name & exist in "Europe" & has population between "1000" - "3000000".
 
 
 <div align="center"><a name="menu"></a>
