@@ -5,7 +5,8 @@ export default SearchFilterWrapper
 
 function SearchFilterWrapper({ children, ...restProps }) {
   return (
-    <Box component={Paper} elevation={10} p={4} width="100%" {...restProps}>
+    <Box component={Paper} elevation={10} p={4}
+      {...restProps}>
       {children}
     </Box>
   )
