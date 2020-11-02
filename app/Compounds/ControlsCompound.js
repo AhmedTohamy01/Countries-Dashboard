@@ -9,6 +9,7 @@ import SearchFieldWrapper from '../Components/Controls/SearchFieldWrapper'
 import SearchFilterWrapper from '../Components/Controls/SearchFilterWrapper'
 import Text from "../Components/Controls/Text"
 import { Grid, Box } from "@material-ui/core"
+import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrapper'
 
 export default ControlsCompound
 
@@ -68,6 +69,11 @@ function ControlsCompound({ children }) {
                 ></CheckBox>
               </Box>
             </RegionFilterWrapper>
+          </Grid>
+          <Grid item>
+            <PopulationFilterWrapper>
+              
+            </PopulationFilterWrapper>
           </Grid>
         </FiltersWrapper>
       </ControlsSectionWrapper>
