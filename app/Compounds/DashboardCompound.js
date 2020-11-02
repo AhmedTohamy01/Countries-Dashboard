@@ -1,20 +1,20 @@
-import React, { useState } from "react"
-import DisplayCompound from "./DisplayCompound"
-import ControlsCompound from "./ControlsCompound"
-import { SearchTermContext } from "../Context/SearchTermContext"
-import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
-import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
-import { PopulationFromContext } from "../Context/PopulationFromContext"
-import { PopulationToContext } from "../Context/PopulationToContext"
+import React, { useState } from 'react'
+import { SearchTermContext } from '../Context/SearchTermContext'
+import { CheckBoxFilterTermContext } from '../Context/CheckBoxFilterTermContext'
+import { RegionFilterTermContext } from '../Context/RegionFilterTermContext'
+import { PopulationFromContext } from '../Context/PopulationFromContext'
+import { PopulationToContext } from '../Context/PopulationToContext'
+import DisplayCompound from './DisplayCompound'
+import ControlsCompound from './ControlsCompound'
 
 export default DashboardCompound
 
-function DashboardCompound({ children }) {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useState("name")
-  const [regionFilterTerm, setRegionFilterTerm] = useState("all")
-  const [populationFrom, setPopulationFrom] = useState("")
-  const [populationTo, setPopulationTo] = useState("")
+function DashboardCompound ({ children }) {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useState('name')
+  const [regionFilterTerm, setRegionFilterTerm] = useState('all')
+  const [populationFrom, setPopulationFrom] = useState('')
+  const [populationTo, setPopulationTo] = useState('')
 
   return (
     <>

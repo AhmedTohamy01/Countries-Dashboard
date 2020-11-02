@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 export default GetData
 
-function GetData() {
+function GetData () {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all")
+    fetch('https://restcountries.eu/rest/v2/all')
       .then((fetchedData) => fetchedData.json())
       .then((jsonData) => setData(jsonData))
       .catch((error) => console.log(error))
