@@ -11,7 +11,9 @@ module.exports = withStyles(styles)(createReactClass({
   render () {
     const { classes } = this.props
     return (
-      <DashboardCompound />
+      <>
+       <DashboardCompound />
+      </>
     )
   }
 }))
@@ -21,6 +23,12 @@ function styles () {
   return {
     container: {
       padding: 36
+    },
+
+    header: {
+      fontWeight: "bold",
+      width: "max-content",
+      minWidth: 150
     }
   }
 }

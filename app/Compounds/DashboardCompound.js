@@ -6,7 +6,8 @@ export default DashboardCompound
 function DashboardCompound({ children }) {
   return (
     <>
-    <DisplayCompound /> 
+    <DisplayCompound />
+    {children}  
     </>
   )
 }
