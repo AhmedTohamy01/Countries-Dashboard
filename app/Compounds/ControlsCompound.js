@@ -19,6 +19,7 @@ import ClearButtonWrapper from "../Components/Controls/ClearButtonWrapper"
 import ClearButton from "../Components/Controls/ClearButton"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
+import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
 
 export default ControlsCompound
 
@@ -27,12 +28,22 @@ function ControlsCompound({ children }) {
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
     CheckBoxFilterTermContext
   )
+  const [regionFilterTerm, setRegionFilterTerm] = useContext(
+    RegionFilterTermContext
+  )
 
   const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
   const [isCapitalCheckBoxChecked, setIsCapitalCheckBoxChecked] = useState(
     false
   )
   const [isLangCheckBoxChecked, setIsLangCheckBoxChecked] = useState(false)
+  const [isAllRegionsChecked, setAllRegionsChecked] = useState(true)
+  const [isAsiaRegionChecked, setIsAsiaRegionChecked] = useState(false)
+  const [isAfricaRegionChecked, setIsAfricaRegionChecked] = useState(false)
+  const [isEuropeRegionChecked, setIsEuropeRegionChecked] = useState(false)
+  const [isAmericasRegionChecked, setIsAmericasRegionChecked] = useState(false)
+  const [isOceaniaRegionChecked, setIsOceaniaRegionChecked] = useState(false)
+  const [isPolarRegionChecked, setIsPolarRegionChecked] = useState(false)
 
   function doNameCheckBoxActions() {
     setIsNameCheckBoxChecked(true)
@@ -57,6 +68,83 @@ function ControlsCompound({ children }) {
 
   function doSearchFieldActions(event) {
     setSearchTerm(event.target.value)
+  }
+
+  function doAllRegionsCheckBoxActions() {
+    setAllRegionsChecked(true)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("all")
+  }
+
+  function doAsiaCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(true)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("asia")
+  }
+
+  function doAfricaCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(true)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("africa")
+  }
+
+  function doEuropeCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(true)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("europe")
+  }
+
+  function doAmericasCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(true)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("americas")
+  }
+
+  function doOceaniaCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(true)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("oceania")
+  }
+
+  function doPolarCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(true)
+    setRegionFilterTerm("polar")
   }
 
   return (
@@ -99,17 +187,52 @@ function ControlsCompound({ children }) {
             <RegionFilterWrapper>
               <Text>Region Filter</Text>
               <Box>
-                <CheckBox id="all" label="All Regions"></CheckBox>
+                <CheckBox
+                  id="all"
+                  label="All Regions"
+                  checked={isAllRegionsChecked}
+                  onClick={() => doAllRegionsCheckBoxActions()}
+                />
               </Box>
               <Box>
-                <CheckBox id="asia" label="Asia"></CheckBox>
-                <CheckBox id="africa" label="Africa"></CheckBox>
-                <CheckBox id="europe" label="Europe"></CheckBox>
+                <CheckBox
+                  id="asia"
+                  label="Asia"
+                  checked={isAsiaRegionChecked}
+                  onClick={() => doAsiaCheckBoxActions()}
+                />
+                <CheckBox
+                  id="africa"
+                  label="Africa"
+                  checked={isAfricaRegionChecked}
+                  onClick={() => doAfricaCheckBoxActions()}
+                />
+                <CheckBox
+                  id="europe"
+                  label="Europe"
+                  checked={isEuropeRegionChecked}
+                  onClick={() => doEuropeCheckBoxActions()}
+                />
               </Box>
               <Box>
-                <CheckBox id="americas" label="Americas"></CheckBox>
-                <CheckBox id="oceania" label="Oceania"></CheckBox>
-                <CheckBox id="polar" label="Polar"></CheckBox>
+                <CheckBox
+                  id="americas"
+                  label="Americas"
+                  checked={isAmericasRegionChecked}
+                  onClick={() => doAmericasCheckBoxActions()}
+                />
+                <CheckBox
+                  id="oceania"
+                  label="Oceania"
+                  checked={isOceaniaRegionChecked}
+                  onClick={() => doOceaniaCheckBoxActions()}
+                />
+                <CheckBox
+                  id="polar"
+                  label="Polar"
+                  checked={isPolarRegionChecked}
+                  onClick={() => doPolarCheckBoxActions()}
+                />
               </Box>
             </RegionFilterWrapper>
           </Grid>
