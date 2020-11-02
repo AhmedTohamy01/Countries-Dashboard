@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
+import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
 
 export default DisplayCompound
 
@@ -28,6 +29,9 @@ function DisplayCompound({ children }) {
   const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
     CheckBoxFilterTermContext
+  )
+  const [regionFilterTerm, setRegionFilterTerm] = useContext(
+    RegionFilterTermContext
   )
 
   return (
