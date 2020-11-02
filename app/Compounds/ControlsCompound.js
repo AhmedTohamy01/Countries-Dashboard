@@ -147,6 +147,24 @@ function ControlsCompound({ children }) {
     setRegionFilterTerm("polar")
   }
 
+  function doClearButtonActions() {
+    setSearchTerm("")
+    setIsNameCheckBoxChecked(true)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(false)
+    setCheckBoxFilterTerm("name")
+    setAllRegionsChecked(true)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("all")
+    setPopulationFrom("")
+    setPopulationTo("")
+  }
+
   function doSearchFieldActions(event) {
     setSearchTerm(event.target.value)
   }
@@ -267,7 +285,12 @@ function ControlsCompound({ children }) {
           </Grid>
         </FiltersWrapper>
         <ClearButtonWrapper>
-          <ClearButton variant="contained" color="secondary" size="large">
+          <ClearButton
+            variant="contained"
+            color="secondary"
+            onClick={doClearButtonActions}
+            size="large"
+          >
             Clear All Filters
           </ClearButton>
         </ClearButtonWrapper>
