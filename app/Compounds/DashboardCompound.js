@@ -13,6 +13,8 @@ function DashboardCompound({ children }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useState("name")
   const [regionFilterTerm, setRegionFilterTerm] = useState("all")
+  const [populationFrom, setPopulationFrom] = useState("")
+  const [populationTo, setPopulationTo] = useState("")
 
   return (
     <>
