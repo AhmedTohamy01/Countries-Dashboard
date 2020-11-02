@@ -20,6 +20,9 @@ Where we can filter the countries based on their region.
 
 Third Level: Population Filter:<br>
 Where we can filter the countries based on their population number.
+  <br><br> 
+  <strong><em>Take a look at the live version here:</em></strong> https://countries-dashboard-sigma.vercel.app/ :octocat: :heart_eyes:
+
 </p>
 
 
@@ -32,6 +35,7 @@ Where we can filter the countries based on their population number.
   - [Population Filter](#population-filter)
   - [All Filters Combined](#all-filters-combined)
   - [Clear Filters](#clear-filters)
+ - [Live Demo](#live-demo)
 - [Technology Used](#technology-used)
 - [How To Use](#how-to-use)
 - [Author](#author)
@@ -122,6 +126,9 @@ The user can clear all filters and return it to the default state by click on on
 ![ScreenShot](/public/img/readme/clear.png)
 </div>
 
+# Live Demo
+
+***Take a look on the live version here:*** https://countries-dashboard-sigma.vercel.app/ :octocat: :heart_eyes: 
 
 # Technology Used
 
