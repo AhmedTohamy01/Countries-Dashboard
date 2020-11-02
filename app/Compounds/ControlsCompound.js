@@ -48,6 +48,13 @@ function ControlsCompound({ children }) {
     setCheckBoxFilterTerm("capital")
   }
 
+  function doLangCheckBoxActions() {
+    setIsNameCheckBoxChecked(false)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(true)
+    setCheckBoxFilterTerm("languages")
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -72,7 +79,12 @@ function ControlsCompound({ children }) {
                   checked={isCapitalCheckBoxChecked}
                   onClick={() => doCapitalCheckBoxActions()}
                 />
-                <CheckBox id="langauge" label="Language" />
+                <CheckBox
+                  id="language"
+                  label="Language"
+                  checked={isLangCheckBoxChecked}
+                  onClick={() => doLangCheckBoxActions()}
+                ></CheckBox>
               </SearchCheckBoxesWrapper>
             </SearchFilterWrapper>
           </Grid>
