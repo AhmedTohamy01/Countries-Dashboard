@@ -1,28 +1,172 @@
-# challenge-countries
 
-This challenge is to create an app that gets a list of countries from an API and has the ability to search and filter them. 
+<h1 align="center">
+  <img title="Outlier" src="https://media-exp1.licdn.com/dms/image/C510BAQE89tgQYze4LQ/company-logo_200_200/0?e=1612396800&v=beta&t=DvoVRPAqyPkFtdxU_8NljWCrvvWi7NOzhhDq8DntJL4" alt="Interlincx Logo" width="200" />
+  <br>
+  Interlincx <br>Countries Dashboard Project
+</h1>
+
+<p><font size="3">
+  This is a Countries Dashboard Project built for Interlincx Media using <strong><em>React.JS</em></strong> and <strong><em>Material-UI</em></strong>
+  <br><br> 
+	 This project is about building a dashboard that connects to an open-source API has information about all countries in the world, gets the data from the API, and displays it in a well-formatted table.
+
+Then we should be able to apply 3 levels of filters (individually or combined) to this data.
+
+First level: Search Filter:
+Where we can search in the countries name or capital or languages and display only the countries which have the search term in their name or capital or lanaguges.
+
+Second level: Region Filter:
+Where we can filter the countries based on their region.
+
+Third Level: Population Filter:
+Where we can filter the countries based on their population number.
+</p>
 
 
-## Setup & Running
-- Clone this repo
-- Run `npm i` to install dependencies
-- Run `npm run dev` to start dev server
-- cd into `app/main.jsx` and start creating the app from there
+## Table of Contents
 
-## Instructions
-- User should be able to view all countries in a table.
-- User should be able to see these information about each country: `name`, `capital`, `region`, `population`, `languages` and `timezones`
-- User should be able to search countries by: `name`, `capital` and `languages`
-- User should choose by which from the above columns he/she wants to search.
-- User should be able to select a region and list all countries from that region.
-- User should be able to filter countries that has a population between 2 inputs.
-- User should be able to use all 3 search/filter functionalities together, e.g. if the user selects `Asia` as a region, chooses to search by `name`, searches for `sa` and adds a population boundary of `15000` and `5000000` the result should be all countries from `Asia` that there names has `sa` and has a population between `15000` and `5000000`
-- User should be able to clear all searches/filters by one click.
+- [Project Walk-Through](#project-walk-through)
+  - [Start Page](#start-page)
+  - [Search Filter](#search-filter)
+  - [Region Filter](#region-filter)
+	- [Population Filter](#population-filter)
+	- [All Filters](#all-filters)
+	- [Clear Filters](#clear-filters)
+- [Technology Used](#technology-used)
+- [How To Use](#how-to-use)
+- [Author](#author)
 
-## Rules
-- use this open source API to get the list of countries https://restcountries.eu/
-- use [material-ui](https://aterial-ui.com/) components.
-- don't use any external libraries that are not already in the repo.
-- make sure that the components you create are reusable, e.g. if we add another view to list and search for animals we could use the same components.
-- Follow these [coding style guidelines](https://gist.github.com/davidguttman/9fbdd0e9ee1fb3b33f5cf693195f2edb#code-style)
-- Be creative
+
+# Project Walk-Through
+
+ # Start Page
+
+<div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/start.png)
+</div>
+
+In this page, all the filters are set to default state, where all countries are displayed on the screen without any filtration. 
+ 
+
+
+
+ # Search Filter
+
+In this page, there are 3 types of filtration 
+
+***1) Search using Name Filter:***
+The user can type any search term in the search field and all countries which have this search term in its name will display on the screen, the user doesn't need to click anything to search, it's all live search.
+
+ <div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/search-1.png)
+</div>
+
+***1) Search using Capital Filter:***
+The user can type any search term in the search field and all countries which have this search term in its capiatl name will display on the screen, the user doesn't need to click anything to search, it's all live search.
+
+ <div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/search-2.png)
+</div>
+
+***1) Search using Langauge Filter:***
+The user can type any search term in the search field and all countries which have this search term in its lanaguges will display on the screen, the user doesn't need to click anything to search, it's all live search.
+
+ <div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/search-3.png)
+</div>
+
+
+ # Region Filter
+
+The user can select any region and only the countries which exist in this region will be displayed on the screen. 
+
+<div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/region.png)
+</div>
+
+
+ # Population Filter
+
+The user can type any 2 numbers and only the countries which have population number between these 2 numbers will be displayed on the screen.
+
+
+<div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/pop.png)
+</div>
+
+ # All Filters
+
+The user can combine the search, region, and population filters and use it all together. 
+
+Example: if the user type "sa" & used the Name Checkbox & select "Asia Region" & typed "15000" - "500000" in the population fields  , he will get all countries which has "sa" in their name & exist in "Asia" & has population between "15000" - "500000".
+
+
+<div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/all.png)
+</div>
+
+ # Clear Filters
+
+The user can clear all filters and return it to the default state by click on one button which is "Clear Filters Button".
+
+
+<div align="center"><a name="menu"></a>
+
+![ScreenShot](/public/img/readme/clear.png)
+</div>
+
+
+# Technology Used
+
+I have built this project using the following tools & techniques:
+- React.JS
+- React Hooks.
+- useState.
+- useContext.
+- Compound Components.
+- JSX.
+- Material UI.
+- VSCode.
+- StandardJS
+
+
+# How To Use
+
+To be able to use this react app locally in a development environment you will need the following:
+
+1) You will need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) installed on your computer.
+
+2) Then From your terminal, you should do the following:
+
+```cmd
+# Clone this repository
+git clone https://github.com/AhmedTohamy01/Countries-Dashboard
+
+# Go into the repository
+cd countries-dashboard
+
+# Install dependencies
+npm install 
+
+# Run the app
+npm run dev
+
+```
+
+4) Now you can see the project in your browser. 
+Happy Hacking!
+
+
+# Author
+
+👤 **Ahmed Tohamy**
+- Github: https://github.com/AhmedTohamy01
+- Linkedin: https://www.linkedin.com/in/ATohamy
+- Email: Ahmed-Tohamy@outlook.com
