@@ -12,6 +12,8 @@ import Paper from "@material-ui/core/Paper"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
+import { PopulationFromContext } from "../Context/PopulationFromContext"
+import { PopulationToContext } from "../Context/PopulationToContext"
 
 export default DisplayCompound
 
@@ -33,6 +35,8 @@ function DisplayCompound({ children }) {
   const [regionFilterTerm, setRegionFilterTerm] = useContext(
     RegionFilterTermContext
   )
+  const [populationFrom, setPopulationFrom] = useContext(PopulationFromContext)
+  const [populationTo, setPopulationTo] = useContext(PopulationToContext)
 
   return (
     <>
