@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { SearchTermContext } from '../Context/SearchTermContext'
@@ -61,40 +62,39 @@ function DisplayCompound ({ children }) {
               populationFrom &&
               populationTo
                 ? data
-                  .filter(
-                    (item) =>
-                      item.languages
-                        .map((lang) => lang.name)
-                        .toString()
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()) &&
+                    .filter(
+                      (item) =>
+                        item.languages
+                          .map((lang) => lang.name)
+                          .toString()
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
                         item.region.toLowerCase() ===
                           regionFilterTerm.toLowerCase() &&
                         item.population <= populationTo &&
                         item.population >= populationFrom
-                  )
-
-                  .map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell>{item.name}</TableCell>
-                      <TableCell>{item.capital}</TableCell>
-                      <TableCell>{item.region}</TableCell>
-                      <TableCell>{item.population}</TableCell>
-                      <TableCell>
-                        {item.languages.map((lang) => `${lang.name}, `)}
-                      </TableCell>
-                      <TableCell>
-                        {item.timezones.toString().split(',').join(' ')}
-                      </TableCell>
-                    </TableRow>
-                  ))
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
                 : searchTerm !== '' && // case-2
                   (checkBoxFilterTerm === 'name' ||
                     checkBoxFilterTerm === 'capital') &&
                   regionFilterTerm !== 'all' &&
                   populationFrom &&
                   populationTo
-                  ? data
+                ? data
                     .filter(
                       (item) =>
                         item[checkBoxFilterTerm]
@@ -119,246 +119,245 @@ function DisplayCompound ({ children }) {
                         </TableCell>
                       </TableRow>
                     ))
-                  : searchTerm !== '' && // case-3
+                : searchTerm !== '' && // case-3
                   checkBoxFilterTerm === 'languages' &&
                   regionFilterTerm !== 'all'
-                    ? data
-                      .filter(
-                        (item) =>
-                          item.languages
-                            .map((lang) => lang.name)
-                            .toString()
-                            .toLowerCase()
-                            .includes(searchTerm.toLowerCase()) &&
+                ? data
+                    .filter(
+                      (item) =>
+                        item.languages
+                          .map((lang) => lang.name)
+                          .toString()
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
                         item.region.toLowerCase() ===
                           regionFilterTerm.toLowerCase()
-                      )
-
-                      .map((item, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{item.name}</TableCell>
-                          <TableCell>{item.capital}</TableCell>
-                          <TableCell>{item.region}</TableCell>
-                          <TableCell>{item.population}</TableCell>
-                          <TableCell>
-                            {item.languages.map((lang) => `${lang.name}, `)}
-                          </TableCell>
-                          <TableCell>
-                            {item.timezones.toString().split(',').join(' ')}
-                          </TableCell>
-                        </TableRow>
-                      ))
-                    : searchTerm !== '' && // case-4
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== '' && // case-4
                   (checkBoxFilterTerm === 'name' ||
                     checkBoxFilterTerm === 'capital') &&
                   regionFilterTerm !== 'all'
-                      ? data
-                        .filter(
-                          (item) =>
-                            item[checkBoxFilterTerm]
-                              .toLowerCase()
-                              .includes(searchTerm.toLowerCase()) &&
+                ? data
+                    .filter(
+                      (item) =>
+                        item[checkBoxFilterTerm]
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
                         item.region.toLowerCase() ===
                           regionFilterTerm.toLowerCase()
-                        )
-                        .map((item, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{item.name}</TableCell>
-                            <TableCell>{item.capital}</TableCell>
-                            <TableCell>{item.region}</TableCell>
-                            <TableCell>{item.population}</TableCell>
-                            <TableCell>
-                              {item.languages.map((lang) => `${lang.name}, `)}
-                            </TableCell>
-                            <TableCell>
-                              {item.timezones.toString().split(',').join(' ')}
-                            </TableCell>
-                          </TableRow>
-                        ))
-                      : searchTerm !== '' && // case-5
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== '' &&
                   checkBoxFilterTerm === 'languages' &&
                   populationFrom &&
                   populationTo
-                        ? data
-                          .filter(
-                            (item) =>
-                              item.languages
-                                .map((lang) => lang.name)
-                                .toString()
-                                .toLowerCase()
-                                .includes(searchTerm.toLowerCase()) &&
+                ? data
+                    .filter(
+                      (item) =>
+                        item.languages
+                          .map((lang) => lang.name)
+                          .toString()
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
                         item.population <= populationTo &&
                         item.population >= populationFrom
-                          )
-                          .map((item, index) => (
-                            <TableRow key={index}>
-                              <TableCell>{item.name}</TableCell>
-                              <TableCell>{item.capital}</TableCell>
-                              <TableCell>{item.region}</TableCell>
-                              <TableCell>{item.population}</TableCell>
-                              <TableCell>
-                                {item.languages.map((lang) => `${lang.name}, `)}
-                              </TableCell>
-                              <TableCell>
-                                {item.timezones.toString().split(',').join(' ')}
-                              </TableCell>
-                            </TableRow>
-                          ))
-                        : searchTerm !== '' && // case-6
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== '' && // case-6
                   (checkBoxFilterTerm === 'name' ||
                     checkBoxFilterTerm === 'capital') &&
                   populationFrom &&
                   populationTo
-                          ? data
-                            .filter(
-                              (item) =>
-                                item[checkBoxFilterTerm]
-                                  .toLowerCase()
-                                  .includes(searchTerm.toLowerCase()) &&
+                ? data
+                    .filter(
+                      (item) =>
+                        item[checkBoxFilterTerm]
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
                         item.population <= populationTo &&
                         item.population >= populationFrom
-                            )
-                            .map((item, index) => (
-                              <TableRow key={index}>
-                                <TableCell>{item.name}</TableCell>
-                                <TableCell>{item.capital}</TableCell>
-                                <TableCell>{item.region}</TableCell>
-                                <TableCell>{item.population}</TableCell>
-                                <TableCell>
-                                  {item.languages.map((lang) => `${lang.name}, `)}
-                                </TableCell>
-                                <TableCell>
-                                  {item.timezones.toString().split(',').join(' ')}
-                                </TableCell>
-                              </TableRow>
-                            ))
-                          : regionFilterTerm !== 'all' && populationFrom && populationTo // case-7
-                            ? data
-                              .filter(
-                                (item) =>
-                                  item.region.toLowerCase() ===
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : regionFilterTerm !== 'all' && populationFrom && populationTo // case-7
+                ? data
+                    .filter(
+                      (item) =>
+                        item.region.toLowerCase() ===
                           regionFilterTerm.toLowerCase() &&
                         item.population <= populationTo &&
                         item.population >= populationFrom
-                              )
-                              .map((item, index) => (
-                                <TableRow key={index}>
-                                  <TableCell>{item.name}</TableCell>
-                                  <TableCell>{item.capital}</TableCell>
-                                  <TableCell>{item.region}</TableCell>
-                                  <TableCell>{item.population}</TableCell>
-                                  <TableCell>
-                                    {item.languages.map((lang) => `${lang.name}, `)}
-                                  </TableCell>
-                                  <TableCell>
-                                    {item.timezones.toString().split(',').join(' ')}
-                                  </TableCell>
-                                </TableRow>
-                              ))
-                            : searchTerm !== '' && checkBoxFilterTerm === 'languages' // case-8
-                              ? data
-                                .filter((item) =>
-                                  item.languages
-                                    .map((lang) => lang.name)
-                                    .toString()
-                                    .toLowerCase()
-                                    .includes(searchTerm.toLowerCase())
-                                )
-                                .map((item, index) => (
-                                  <TableRow key={index}>
-                                    <TableCell>{item.name}</TableCell>
-                                    <TableCell>{item.capital}</TableCell>
-                                    <TableCell>{item.region}</TableCell>
-                                    <TableCell>{item.population}</TableCell>
-                                    <TableCell>
-                                      {item.languages.map((lang) => `${lang.name}, `)}
-                                    </TableCell>
-                                    <TableCell>
-                                      {item.timezones.toString().split(',').join(' ')}
-                                    </TableCell>
-                                  </TableRow>
-                                ))
-                              : searchTerm !== '' && // case-9
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== '' && checkBoxFilterTerm === 'languages' // case-8
+                ? data
+                    .filter((item) =>
+                      item.languages
+                        .map((lang) => lang.name)
+                        .toString()
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== '' && // case-9
                   (checkBoxFilterTerm === 'name' ||
                     checkBoxFilterTerm === 'capital')
-                                ? data
-                                  .filter((item) =>
-                                    item[checkBoxFilterTerm]
-                                      .toLowerCase()
-                                      .includes(searchTerm.toLowerCase())
-                                  )
-                                  .map((item, index) => (
-                                    <TableRow key={index}>
-                                      <TableCell>{item.name}</TableCell>
-                                      <TableCell>{item.capital}</TableCell>
-                                      <TableCell>{item.region}</TableCell>
-                                      <TableCell>{item.population}</TableCell>
-                                      <TableCell>
-                                        {item.languages.map((lang) => `${lang.name}, `)}
-                                      </TableCell>
-                                      <TableCell>
-                                        {item.timezones.toString().split(',').join(' ')}
-                                      </TableCell>
-                                    </TableRow>
-                                  ))
-                                : regionFilterTerm !== 'all' // case-10
-                                  ? data
-                                    .filter(
-                                      (item) =>
-                                        item.region.toLowerCase() ===
+                ? data
+                    .filter((item) =>
+                      item[checkBoxFilterTerm]
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : regionFilterTerm !== 'all' // case-10
+                ? data
+                    .filter(
+                      (item) =>
+                        item.region.toLowerCase() ===
                         regionFilterTerm.toLowerCase()
-                                    )
-                                    .map((item, index) => (
-                                      <TableRow key={index}>
-                                        <TableCell>{item.name}</TableCell>
-                                        <TableCell>{item.capital}</TableCell>
-                                        <TableCell>{item.region}</TableCell>
-                                        <TableCell>{item.population}</TableCell>
-                                        <TableCell>
-                                          {item.languages.map((lang) => `${lang.name}, `)}
-                                        </TableCell>
-                                        <TableCell>
-                                          {item.timezones.toString().split(',').join(' ')}
-                                        </TableCell>
-                                      </TableRow>
-                                    ))
-                                  : populationFrom && populationTo // case-11
-                                    ? data
-                                      .filter(
-                                        (item) =>
-                                          item.population <= populationTo &&
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : populationFrom && populationTo // case-11
+                ? data
+                    .filter(
+                      (item) =>
+                        item.population <= populationTo &&
                         item.population >= populationFrom
-                                      )
-                                      .map((item, index) => (
-                                        <TableRow key={index}>
-                                          <TableCell>{item.name}</TableCell>
-                                          <TableCell>{item.capital}</TableCell>
-                                          <TableCell>{item.region}</TableCell>
-                                          <TableCell>{item.population}</TableCell>
-                                          <TableCell>
-                                            {item.languages.map((lang) => `${lang.name}, `)}
-                                          </TableCell>
-                                          <TableCell>
-                                            {item.timezones.toString().split(',').join(' ')}
-                                          </TableCell>
-                                        </TableRow>
-                                      ))
-                                    : searchTerm === '' // case-12
-                                      ? data.map((item, index) => (
-                                        <TableRow key={index}>
-                                          <TableCell>{item.name}</TableCell>
-                                          <TableCell>{item.capital}</TableCell>
-                                          <TableCell>{item.region}</TableCell>
-                                          <TableCell>{item.population}</TableCell>
-                                          <TableCell>
-                                            {item.languages.map((lang) => `${lang.name}, `)}
-                                          </TableCell>
-                                          <TableCell>
-                                            {item.timezones.toString().split(',').join(' ')}
-                                          </TableCell>
-                                        </TableRow>
-                                      ))
-                                      : null}
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(',').join(' ')}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm === '' // case-12
+                ? data.map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{item.name}</TableCell>
+                    <TableCell>{item.capital}</TableCell>
+                    <TableCell>{item.region}</TableCell>
+                    <TableCell>{item.population}</TableCell>
+                    <TableCell>
+                      {item.languages.map((lang) => `${lang.name}, `)}
+                    </TableCell>
+                    <TableCell>
+                      {item.timezones.toString().split(',').join(' ')}
+                    </TableCell>
+                  </TableRow>
+                  ))
+                : null}
             </TableBody>
           </Table>
         </TableContainer>
@@ -367,3 +366,4 @@ function DisplayCompound ({ children }) {
     </>
   )
 }
+/* eslint-enable indent */
