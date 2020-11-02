@@ -135,7 +135,18 @@ function ControlsCompound({ children }) {
     setIsPolarRegionChecked(false)
     setRegionFilterTerm("oceania")
   }
-  
+
+  function doPolarCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(true)
+    setRegionFilterTerm("polar")
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -216,7 +227,12 @@ function ControlsCompound({ children }) {
                   checked={isOceaniaRegionChecked}
                   onClick={() => doOceaniaCheckBoxActions()}
                 />
-                <CheckBox id="polar" label="Polar"></CheckBox>
+                <CheckBox
+                  id="polar"
+                  label="Polar"
+                  checked={isPolarRegionChecked}
+                  onClick={() => doPolarCheckBoxActions()}
+                />
               </Box>
             </RegionFilterWrapper>
           </Grid>
