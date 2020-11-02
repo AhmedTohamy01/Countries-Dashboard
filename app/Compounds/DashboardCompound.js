@@ -13,9 +13,13 @@ function DashboardCompound({ children }) {
   return (
     <>
       <SearchTermContext.Provider value={[searchTerm, setSearchTerm]}>
-        <ControlsCompound />
-        <DisplayCompound />
-        {children}
+        <CheckBoxFilterTermContext.Provider
+          value={[checkBoxFilterTerm, setCheckBoxFilterTerm]}
+        >
+          <ControlsCompound />
+          <DisplayCompound />
+          {children}
+        </CheckBoxFilterTermContext.Provider>
       </SearchTermContext.Provider>
     </>
   )
