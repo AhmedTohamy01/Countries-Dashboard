@@ -50,7 +50,63 @@ function DisplayCompound({ children }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {searchTerm !== "" && checkBoxFilterTerm === "languages" //case-8
+              {searchTerm !== "" && //case-3
+              checkBoxFilterTerm === "languages" &&
+              regionFilterTerm !== "all"
+                ? data
+                    .filter(
+                      (item) =>
+                        item.languages
+                          .map((lang) => lang.name)
+                          .toString()
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
+                        item.region.toLowerCase() ===
+                          regionFilterTerm.toLowerCase()
+                    )
+
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== "" && //case-4
+                  (checkBoxFilterTerm === "name" ||
+                    checkBoxFilterTerm === "capital") &&
+                  regionFilterTerm !== "all"
+                ? data
+                    .filter(
+                      (item) =>
+                        item[checkBoxFilterTerm]
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) &&
+                        item.region.toLowerCase() ===
+                          regionFilterTerm.toLowerCase()
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : searchTerm !== "" && checkBoxFilterTerm === "languages" //case-8
                 ? data
                     .filter((item) =>
                       item.languages
@@ -81,6 +137,27 @@ function DisplayCompound({ children }) {
                       item[checkBoxFilterTerm]
                         .toLowerCase()
                         .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
+                : regionFilterTerm !== "all" //case-10
+                ? data
+                    .filter(
+                      (item) =>
+                        item.region.toLowerCase() ===
+                        regionFilterTerm.toLowerCase()
                     )
                     .map((item, index) => (
                       <TableRow key={index}>
