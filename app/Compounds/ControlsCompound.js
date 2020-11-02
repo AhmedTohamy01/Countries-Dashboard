@@ -20,6 +20,8 @@ import ClearButton from "../Components/Controls/ClearButton"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
+import { PopulationFromContext } from "../Context/PopulationFromContext"
+import { PopulationToContext } from "../Context/PopulationToContext"
 
 export default ControlsCompound
 
@@ -31,6 +33,8 @@ function ControlsCompound({ children }) {
   const [regionFilterTerm, setRegionFilterTerm] = useContext(
     RegionFilterTermContext
   )
+  const [populationFrom, setPopulationFrom] = useContext(PopulationFromContext)
+  const [populationTo, setPopulationTo] = useContext(PopulationToContext)
 
   const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
   const [isCapitalCheckBoxChecked, setIsCapitalCheckBoxChecked] = useState(
