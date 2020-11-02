@@ -69,6 +69,29 @@ function DisplayCompound({ children }) {
                         </TableCell>
                       </TableRow>
                     ))
+                : searchTerm !== "" && //case-9
+                  (checkBoxFilterTerm === "name" ||
+                    checkBoxFilterTerm === "capital")
+                ? data
+                    .filter((item) =>
+                      item[checkBoxFilterTerm]
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>{item.capital}</TableCell>
+                        <TableCell>{item.region}</TableCell>
+                        <TableCell>{item.population}</TableCell>
+                        <TableCell>
+                          {item.languages.map((lang) => `${lang.name}, `)}
+                        </TableCell>
+                        <TableCell>
+                          {item.timezones.toString().split(",").join(" ")}
+                        </TableCell>
+                      </TableRow>
+                    ))
                 : searchTerm === "" //case-12
                 ? data.map((item, index) => (
                     <TableRow key={index}>
