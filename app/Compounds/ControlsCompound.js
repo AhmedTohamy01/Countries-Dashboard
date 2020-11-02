@@ -150,9 +150,13 @@ function ControlsCompound({ children }) {
   function doSearchFieldActions(event) {
     setSearchTerm(event.target.value)
   }
-  
+
   function doFromFieldActions(event) {
     setPopulationFrom(event.target.value)
+  }
+
+  function doToFieldActions(event) {
+    setPopulationTo(event.target.value)
   }
 
   return (
@@ -254,7 +258,10 @@ function ControlsCompound({ children }) {
                 />
               </FromFieldWrapper>
               <ToFieldWrapper>
-                <ToField />
+                <ToField
+                  value={populationTo}
+                  onChange={(event) => doToFieldActions(event)}
+                />
               </ToFieldWrapper>
             </PopulationFilterWrapper>
           </Grid>
