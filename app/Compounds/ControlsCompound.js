@@ -55,6 +55,10 @@ function ControlsCompound({ children }) {
     setCheckBoxFilterTerm("languages")
   }
 
+  function doSearchFieldActions(event) {
+    setSearchTerm(event.target.value)
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -64,7 +68,10 @@ function ControlsCompound({ children }) {
             <SearchFilterWrapper>
               <Text>Search Filter</Text>
               <SearchFieldWrapper>
-                <SearchField />
+                <SearchField
+                  value={searchTerm}
+                  onChange={(event) => doSearchFieldActions(event)}
+                />
               </SearchFieldWrapper>
               <SearchCheckBoxesWrapper>
                 <CheckBox
