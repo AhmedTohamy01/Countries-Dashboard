@@ -14,6 +14,7 @@ import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
 import FromField from '../Components/Controls/FromField'
 import ToFieldWrapper from '../Components/Controls/ToFieldWrapper'
 import ToField from "../Components/Controls/ToField"
+import ClearButtonWrapper from '../Components/Controls/ClearButtonWrapper'
 
 export default ControlsCompound
 
@@ -65,6 +66,9 @@ function ControlsCompound({ children }) {
             </PopulationFilterWrapper>
           </Grid>
         </FiltersWrapper>
+        <ClearButtonWrapper>
+          
+        </ClearButtonWrapper>
       </ControlsSectionWrapper>
       {children}
     </>
