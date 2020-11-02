@@ -92,6 +92,17 @@ function ControlsCompound({ children }) {
     setRegionFilterTerm("asia")
   }
 
+  function doAfricaCheckBoxActions() {
+    setAllRegionsChecked(false)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(true)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("africa")
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -146,7 +157,12 @@ function ControlsCompound({ children }) {
                   checked={isAsiaRegionChecked}
                   onClick={() => doAsiaCheckBoxActions()}
                 />
-                <CheckBox id="africa" label="Africa"></CheckBox>
+                <CheckBox
+                  id="africa"
+                  label="Africa"
+                  checked={isAfricaRegionChecked}
+                  onClick={() => doAfricaCheckBoxActions()}
+                />
                 <CheckBox id="europe" label="Europe"></CheckBox>
               </Box>
               <Box>
