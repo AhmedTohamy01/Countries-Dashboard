@@ -31,7 +31,9 @@ function ControlsCompound({ children }) {
             </SearchFilterWrapper>
           </Grid>
           <Grid item>
-            <RegionFilterWrapper></RegionFilterWrapper>
+            <RegionFilterWrapper>
+              <Text>Region Filter</Text>
+            </RegionFilterWrapper>
           </Grid>
         </FiltersWrapper>
       </ControlsSectionWrapper>
