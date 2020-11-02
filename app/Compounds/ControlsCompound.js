@@ -11,6 +11,8 @@ import Text from "../Components/Controls/Text"
 import { Grid, Box } from "@material-ui/core"
 import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrapper'
 import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
+import FromField from '../Components/Controls/FromField'
+import ToField from "../Components/Controls/ToField"
 
 export default ControlsCompound
 
@@ -74,7 +76,7 @@ function ControlsCompound({ children }) {
           <Grid item>
             <PopulationFilterWrapper>
               <FromFieldWrapper>
-
+                <FromField />
               </FromFieldWrapper>
             </PopulationFilterWrapper>
           </Grid>
