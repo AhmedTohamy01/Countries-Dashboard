@@ -13,6 +13,7 @@ import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrap
 import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
 import FromField from '../Components/Controls/FromField'
 import ToFieldWrapper from '../Components/Controls/ToFieldWrapper'
+import ToField from "../Components/Controls/ToField"
 
 export default ControlsCompound
 
@@ -79,7 +80,7 @@ function ControlsCompound({ children }) {
                 <FromField />
               </FromFieldWrapper>
               <ToFieldWrapper>
-
+                <ToField />
               </ToFieldWrapper>
             </PopulationFilterWrapper>
           </Grid>
