@@ -3,21 +3,18 @@ import createReactClass from 'create-react-class'
 import withStyles from '@material-ui/styles/withStyles'
 import DashboardCompound from './Compounds/DashboardCompound'
 
-
 module.exports = withStyles(styles)(createReactClass({
   displayName: 'Main',
-
 
   render () {
     const { classes } = this.props
     return (
       <>
-       <DashboardCompound />
+        <DashboardCompound />
       </>
     )
   }
 }))
-
 
 function styles () {
   return {
@@ -26,8 +23,8 @@ function styles () {
     },
 
     header: {
-      fontWeight: "bold",
-      width: "max-content",
+      fontWeight: 'bold',
+      width: 'max-content',
       minWidth: 150
     }
   }

@@ -1,29 +1,31 @@
-import React, { useState, useContext } from "react"
-import CheckBox from "../Components/Controls/CheckBox"
-import ControlsSectionWrapper from "../Components/Controls/ControlsSectionWrapper"
-import FiltersWrapper from "../Components/Controls/FiltersWrapper"
-import RegionFilterWrapper from "../Components/Controls/RegionFilterWrapper"
-import SearchCheckBoxesWrapper from "../Components/Controls/SearchCheckBoxesWrapper"
-import SearchField from "../Components/Controls/SearchField"
-import SearchFieldWrapper from "../Components/Controls/SearchFieldWrapper"
-import SearchFilterWrapper from "../Components/Controls/SearchFilterWrapper"
-import Text from "../Components/Controls/Text"
-import Title from "../Components/Controls/Title"
-import { Grid, Box } from "@material-ui/core"
-import PopulationFilterWrapper from "../Components/Controls/PopulationFilterWrapper"
-import FromFieldWrapper from "../Components/Controls/FromFieldWrapper"
-import FromField from "../Components/Controls/FromField"
-import ToFieldWrapper from "../Components/Controls/ToFieldWrapper"
-import ToField from "../Components/Controls/ToField"
-import ClearButtonWrapper from "../Components/Controls/ClearButtonWrapper"
-import ClearButton from "../Components/Controls/ClearButton"
-import { SearchTermContext } from "../Context/SearchTermContext"
-import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
-import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
+import React, { useState, useContext } from 'react'
+import { Grid, Box } from '@material-ui/core'
+import { SearchTermContext } from '../Context/SearchTermContext'
+import { CheckBoxFilterTermContext } from '../Context/CheckBoxFilterTermContext'
+import { RegionFilterTermContext } from '../Context/RegionFilterTermContext'
+import { PopulationFromContext } from '../Context/PopulationFromContext'
+import { PopulationToContext } from '../Context/PopulationToContext'
+import CheckBox from '../Components/Controls/CheckBox'
+import ControlsSectionWrapper from '../Components/Controls/ControlsSectionWrapper'
+import FiltersWrapper from '../Components/Controls/FiltersWrapper'
+import RegionFilterWrapper from '../Components/Controls/RegionFilterWrapper'
+import SearchCheckBoxesWrapper from '../Components/Controls/SearchCheckBoxesWrapper'
+import SearchField from '../Components/Controls/SearchField'
+import SearchFieldWrapper from '../Components/Controls/SearchFieldWrapper'
+import SearchFilterWrapper from '../Components/Controls/SearchFilterWrapper'
+import Text from '../Components/Controls/Text'
+import Title from '../Components/Controls/Title'
+import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrapper'
+import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
+import FromField from '../Components/Controls/FromField'
+import ToFieldWrapper from '../Components/Controls/ToFieldWrapper'
+import ToField from '../Components/Controls/ToField'
+import ClearButtonWrapper from '../Components/Controls/ClearButtonWrapper'
+import ClearButton from '../Components/Controls/ClearButton'
 
 export default ControlsCompound
 
-function ControlsCompound({ children }) {
+function ControlsCompound ({ children }) {
   const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
     CheckBoxFilterTermContext
@@ -31,6 +33,8 @@ function ControlsCompound({ children }) {
   const [regionFilterTerm, setRegionFilterTerm] = useContext(
     RegionFilterTermContext
   )
+  const [populationFrom, setPopulationFrom] = useContext(PopulationFromContext)
+  const [populationTo, setPopulationTo] = useContext(PopulationToContext)
 
   const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
   const [isCapitalCheckBoxChecked, setIsCapitalCheckBoxChecked] = useState(
@@ -45,32 +49,28 @@ function ControlsCompound({ children }) {
   const [isOceaniaRegionChecked, setIsOceaniaRegionChecked] = useState(false)
   const [isPolarRegionChecked, setIsPolarRegionChecked] = useState(false)
 
-  function doNameCheckBoxActions() {
+  function doNameCheckBoxActions () {
     setIsNameCheckBoxChecked(true)
     setIsCapitalCheckBoxChecked(false)
     setIsLangCheckBoxChecked(false)
-    setCheckBoxFilterTerm("name")
+    setCheckBoxFilterTerm('name')
   }
 
-  function doCapitalCheckBoxActions() {
+  function doCapitalCheckBoxActions () {
     setIsNameCheckBoxChecked(false)
     setIsCapitalCheckBoxChecked(true)
     setIsLangCheckBoxChecked(false)
-    setCheckBoxFilterTerm("capital")
+    setCheckBoxFilterTerm('capital')
   }
 
-  function doLangCheckBoxActions() {
+  function doLangCheckBoxActions () {
     setIsNameCheckBoxChecked(false)
     setIsCapitalCheckBoxChecked(false)
     setIsLangCheckBoxChecked(true)
-    setCheckBoxFilterTerm("languages")
+    setCheckBoxFilterTerm('languages')
   }
 
-  function doSearchFieldActions(event) {
-    setSearchTerm(event.target.value)
-  }
-
-  function doAllRegionsCheckBoxActions() {
+  function doAllRegionsCheckBoxActions () {
     setAllRegionsChecked(true)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(false)
@@ -78,10 +78,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("all")
+    setRegionFilterTerm('all')
   }
 
-  function doAsiaCheckBoxActions() {
+  function doAsiaCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(true)
     setIsAfricaRegionChecked(false)
@@ -89,10 +89,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("asia")
+    setRegionFilterTerm('asia')
   }
 
-  function doAfricaCheckBoxActions() {
+  function doAfricaCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(true)
@@ -100,10 +100,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("africa")
+    setRegionFilterTerm('africa')
   }
 
-  function doEuropeCheckBoxActions() {
+  function doEuropeCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(false)
@@ -111,10 +111,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("europe")
+    setRegionFilterTerm('europe')
   }
 
-  function doAmericasCheckBoxActions() {
+  function doAmericasCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(false)
@@ -122,10 +122,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(true)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("americas")
+    setRegionFilterTerm('americas')
   }
 
-  function doOceaniaCheckBoxActions() {
+  function doOceaniaCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(false)
@@ -133,10 +133,10 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(true)
     setIsPolarRegionChecked(false)
-    setRegionFilterTerm("oceania")
+    setRegionFilterTerm('oceania')
   }
 
-  function doPolarCheckBoxActions() {
+  function doPolarCheckBoxActions () {
     setAllRegionsChecked(false)
     setIsAsiaRegionChecked(false)
     setIsAfricaRegionChecked(false)
@@ -144,7 +144,37 @@ function ControlsCompound({ children }) {
     setIsAmericasRegionChecked(false)
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(true)
-    setRegionFilterTerm("polar")
+    setRegionFilterTerm('polar')
+  }
+
+  function doClearButtonActions () {
+    setSearchTerm('')
+    setIsNameCheckBoxChecked(true)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(false)
+    setCheckBoxFilterTerm('name')
+    setAllRegionsChecked(true)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm('all')
+    setPopulationFrom('')
+    setPopulationTo('')
+  }
+
+  function doSearchFieldActions (event) {
+    setSearchTerm(event.target.value)
+  }
+
+  function doFromFieldActions (event) {
+    setPopulationFrom(event.target.value)
+  }
+
+  function doToFieldActions (event) {
+    setPopulationTo(event.target.value)
   }
 
   return (
@@ -163,23 +193,23 @@ function ControlsCompound({ children }) {
               </SearchFieldWrapper>
               <SearchCheckBoxesWrapper>
                 <CheckBox
-                  id="name"
-                  label="Name"
+                  id='name'
+                  label='Name'
                   checked={isNameCheckBoxChecked}
                   onClick={() => doNameCheckBoxActions()}
                 />
                 <CheckBox
-                  id="capital"
-                  label="Capital"
+                  id='capital'
+                  label='Capital'
                   checked={isCapitalCheckBoxChecked}
                   onClick={() => doCapitalCheckBoxActions()}
                 />
                 <CheckBox
-                  id="language"
-                  label="Language"
+                  id='language'
+                  label='Language'
                   checked={isLangCheckBoxChecked}
                   onClick={() => doLangCheckBoxActions()}
-                ></CheckBox>
+                />
               </SearchCheckBoxesWrapper>
             </SearchFilterWrapper>
           </Grid>
@@ -188,48 +218,48 @@ function ControlsCompound({ children }) {
               <Text>Region Filter</Text>
               <Box>
                 <CheckBox
-                  id="all"
-                  label="All Regions"
+                  id='all'
+                  label='All Regions'
                   checked={isAllRegionsChecked}
                   onClick={() => doAllRegionsCheckBoxActions()}
                 />
               </Box>
               <Box>
                 <CheckBox
-                  id="asia"
-                  label="Asia"
+                  id='asia'
+                  label='Asia'
                   checked={isAsiaRegionChecked}
                   onClick={() => doAsiaCheckBoxActions()}
                 />
                 <CheckBox
-                  id="africa"
-                  label="Africa"
+                  id='africa'
+                  label='Africa'
                   checked={isAfricaRegionChecked}
                   onClick={() => doAfricaCheckBoxActions()}
                 />
                 <CheckBox
-                  id="europe"
-                  label="Europe"
+                  id='europe'
+                  label='Europe'
                   checked={isEuropeRegionChecked}
                   onClick={() => doEuropeCheckBoxActions()}
                 />
               </Box>
               <Box>
                 <CheckBox
-                  id="americas"
-                  label="Americas"
+                  id='americas'
+                  label='Americas'
                   checked={isAmericasRegionChecked}
                   onClick={() => doAmericasCheckBoxActions()}
                 />
                 <CheckBox
-                  id="oceania"
-                  label="Oceania"
+                  id='oceania'
+                  label='Oceania'
                   checked={isOceaniaRegionChecked}
                   onClick={() => doOceaniaCheckBoxActions()}
                 />
                 <CheckBox
-                  id="polar"
-                  label="Polar"
+                  id='polar'
+                  label='Polar'
                   checked={isPolarRegionChecked}
                   onClick={() => doPolarCheckBoxActions()}
                 />
@@ -240,16 +270,27 @@ function ControlsCompound({ children }) {
             <PopulationFilterWrapper>
               <Text>Population Filter</Text>
               <FromFieldWrapper>
-                <FromField />
+                <FromField
+                  value={populationFrom}
+                  onChange={(event) => doFromFieldActions(event)}
+                />
               </FromFieldWrapper>
               <ToFieldWrapper>
-                <ToField />
+                <ToField
+                  value={populationTo}
+                  onChange={(event) => doToFieldActions(event)}
+                />
               </ToFieldWrapper>
             </PopulationFilterWrapper>
           </Grid>
         </FiltersWrapper>
         <ClearButtonWrapper>
-          <ClearButton variant="contained" color="secondary" size="large">
+          <ClearButton
+            variant='contained'
+            color='secondary'
+            onClick={doClearButtonActions}
+            size='large'
+          >
             Clear All Filters
           </ClearButton>
         </ClearButtonWrapper>
