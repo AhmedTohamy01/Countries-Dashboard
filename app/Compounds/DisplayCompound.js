@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import DisplaySectionWrapper from "../Components/Display/DisplaySectionWrapper"
 import GetData from "../CustomHooks/GetData"
 import { makeStyles } from "@material-ui/core/styles"

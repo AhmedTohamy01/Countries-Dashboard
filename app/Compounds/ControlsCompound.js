@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import CheckBox from "../Components/Controls/CheckBox"
 import ControlsSectionWrapper from "../Components/Controls/ControlsSectionWrapper"
 import FiltersWrapper from "../Components/Controls/FiltersWrapper"
@@ -33,6 +33,14 @@ function ControlsCompound({ children }) {
     false
   )
   const [isLangCheckBoxChecked, setIsLangCheckBoxChecked] = useState(false)
+
+  function doNameCheckBoxActions() {
+    setIsNameCheckBoxChecked(true)
+    setIsCapitalCheckBoxChecked(false)
+    setIsLangCheckBoxChecked(false)
+    setCheckBoxFilterTerm("name")
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -45,7 +53,12 @@ function ControlsCompound({ children }) {
                 <SearchField />
               </SearchFieldWrapper>
               <SearchCheckBoxesWrapper>
-                <CheckBox id="name" label="Name" />
+                <CheckBox
+                  id="name"
+                  label="Name"
+                  checked={isNameCheckBoxChecked}
+                  onClick={() => doNameCheckBoxActions()}
+                />
                 <CheckBox id="capital" label="Capital" />
                 <CheckBox id="langauge" label="Language" />
               </SearchCheckBoxesWrapper>
