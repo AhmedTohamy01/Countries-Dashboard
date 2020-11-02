@@ -70,6 +70,17 @@ function ControlsCompound({ children }) {
     setSearchTerm(event.target.value)
   }
 
+  function doAllRegionsCheckBoxActions() {
+    setAllRegionsChecked(true)
+    setIsAsiaRegionChecked(false)
+    setIsAfricaRegionChecked(false)
+    setIsEuropeRegionChecked(false)
+    setIsAmericasRegionChecked(false)
+    setIsOceaniaRegionChecked(false)
+    setIsPolarRegionChecked(false)
+    setRegionFilterTerm("all")
+  }
+
   return (
     <>
       <ControlsSectionWrapper>
@@ -110,7 +121,12 @@ function ControlsCompound({ children }) {
             <RegionFilterWrapper>
               <Text>Region Filter</Text>
               <Box>
-                <CheckBox id="all" label="All Regions"></CheckBox>
+                <CheckBox
+                  id="all"
+                  label="All Regions"
+                  checked={isAllRegionsChecked}
+                  onClick={() => doAllRegionsCheckBoxActions()}
+                />
               </Box>
               <Box>
                 <CheckBox id="asia" label="Asia"></CheckBox>
