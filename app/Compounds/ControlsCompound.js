@@ -1,4 +1,5 @@
 import React from "react"
+import CheckBox from '../Components/Controls/CheckBox'
 import ControlsSectionWrapper from '../Components/Controls/ControlsSectionWrapper'
 import FiltersWrapper from '../Components/Controls/FiltersWrapper'
 import SearchCheckBoxesWrapper from '../Components/Controls/SearchCheckBoxesWrapper'
@@ -20,7 +21,9 @@ function ControlsCompound({ children }) {
               <SearchField />
             </SearchFieldWrapper>
             <SearchCheckBoxesWrapper>
-              
+              <CheckBox id="name" label="Name" />
+              <CheckBox id="capital" label="Capital" />
+              <CheckBox id="langauge" label="Language" />
             </SearchCheckBoxesWrapper>
           </SearchFilterWrapper>
         </FiltersWrapper>
