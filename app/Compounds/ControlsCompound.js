@@ -70,10 +70,6 @@ function ControlsCompound({ children }) {
     setCheckBoxFilterTerm("languages")
   }
 
-  function doSearchFieldActions(event) {
-    setSearchTerm(event.target.value)
-  }
-
   function doAllRegionsCheckBoxActions() {
     setAllRegionsChecked(true)
     setIsAsiaRegionChecked(false)
@@ -149,6 +145,14 @@ function ControlsCompound({ children }) {
     setIsOceaniaRegionChecked(false)
     setIsPolarRegionChecked(true)
     setRegionFilterTerm("polar")
+  }
+
+  function doSearchFieldActions(event) {
+    setSearchTerm(event.target.value)
+  }
+  
+  function doFromFieldActions(event) {
+    setPopulationFrom(event.target.value)
   }
 
   return (
@@ -244,7 +248,10 @@ function ControlsCompound({ children }) {
             <PopulationFilterWrapper>
               <Text>Population Filter</Text>
               <FromFieldWrapper>
-                <FromField />
+                <FromField
+                  value={populationFrom}
+                  onChange={(event) => doFromFieldActions(event)}
+                />
               </FromFieldWrapper>
               <ToFieldWrapper>
                 <ToField />
