@@ -4,6 +4,8 @@ import ControlsCompound from "./ControlsCompound"
 import { SearchTermContext } from "../Context/SearchTermContext"
 import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 import { RegionFilterTermContext } from "../Context/RegionFilterTermContext"
+import { PopulationFromContext } from "../Context/PopulationFromContext"
+import { PopulationToContext } from "../Context/PopulationToContext"
 
 export default DashboardCompound
 
@@ -21,9 +23,17 @@ function DashboardCompound({ children }) {
           <RegionFilterTermContext.Provider
             value={[regionFilterTerm, setRegionFilterTerm]}
           >
-            <ControlsCompound />
-            <DisplayCompound />
-            {children}
+            <PopulationFromContext.Provider
+              value={[populationFrom, setPopulationFrom]}
+            >
+              <PopulationToContext.Provider
+                value={[populationTo, setPopulationTo]}
+              >
+                <ControlsCompound />
+                <DisplayCompound />
+                {children}
+              </PopulationToContext.Provider>
+            </PopulationFromContext.Provider>
           </RegionFilterTermContext.Provider>
         </CheckBoxFilterTermContext.Provider>
       </SearchTermContext.Provider>
