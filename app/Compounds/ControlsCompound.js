@@ -33,6 +33,40 @@ function ControlsCompound({ children }) {
           <Grid item>
             <RegionFilterWrapper>
               <Text>Region Filter</Text>
+              <Box>
+                <CheckBox
+                  id="all"
+                  label="All Regions"
+                ></CheckBox>
+              </Box>
+              <Box>
+                <CheckBox
+                  id="asia"
+                  label="Asia"
+                ></CheckBox>
+                <CheckBox
+                  id="africa"
+                  label="Africa"
+                ></CheckBox>
+                <CheckBox
+                  id="europe"
+                  label="Europe"
+                ></CheckBox>
+              </Box>
+              <Box>
+                <CheckBox
+                  id="americas"
+                  label="Americas"
+                ></CheckBox>
+                <CheckBox
+                  id="oceania"
+                  label="Oceania"
+                ></CheckBox>
+                <CheckBox
+                  id="polar"
+                  label="Polar"
+                ></CheckBox>
+              </Box>
             </RegionFilterWrapper>
           </Grid>
         </FiltersWrapper>
