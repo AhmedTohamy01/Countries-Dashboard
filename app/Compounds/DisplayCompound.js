@@ -9,6 +9,8 @@ import TableContainer from "@material-ui/core/TableContainer"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
+import { SearchTermContext } from "../Context/SearchTermContext"
+import { CheckBoxFilterTermContext } from "../Context/CheckBoxFilterTermContext"
 
 export default DisplayCompound
 
@@ -23,14 +25,16 @@ function DisplayCompound({ children }) {
   const classes = useStyles()
   const { data } = GetData("data")
 
+  const [searchTerm, setSearchTerm] = useContext(SearchTermContext)
+  const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
+    CheckBoxFilterTermContext
+  )
+
   return (
     <>
       <DisplaySectionWrapper>
         <TableContainer component={Paper} elevation={10}>
-          <Table
-            size="small"
-            aria-label="Countries Table"
-          >
+          <Table size="small" aria-label="Countries Table">
             <TableHead>
               <TableRow>
                 <TableCell className={classes.header}>Country Name</TableCell>
