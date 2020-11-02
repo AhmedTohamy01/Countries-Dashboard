@@ -1,6 +1,7 @@
 import React from 'react'
 import createReactClass from 'create-react-class'
 import withStyles from '@material-ui/styles/withStyles'
+import DashboardCompound from './Compounds/DashboardCompound'
 
 
 module.exports = withStyles(styles)(createReactClass({
@@ -10,9 +11,7 @@ module.exports = withStyles(styles)(createReactClass({
   render () {
     const { classes } = this.props
     return (
-      <div className={classes.container}>
-          <h1> World Countries </h1>
-      </div>
+      <DashboardCompound />
     )
   }
 }))
