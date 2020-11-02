@@ -27,6 +27,12 @@ function ControlsCompound({ children }) {
   const [checkBoxFilterTerm, setCheckBoxFilterTerm] = useContext(
     CheckBoxFilterTermContext
   )
+
+  const [isNameCheckBoxChecked, setIsNameCheckBoxChecked] = useState(true)
+  const [isCapitalCheckBoxChecked, setIsCapitalCheckBoxChecked] = useState(
+    false
+  )
+  const [isLangCheckBoxChecked, setIsLangCheckBoxChecked] = useState(false)
   return (
     <>
       <ControlsSectionWrapper>
