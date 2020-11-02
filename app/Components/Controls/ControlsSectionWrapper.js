@@ -9,8 +9,6 @@ function ControlsSectionWrapper({ children, ...restProps }) {
       p={4}
       display="flex"
       flexDirection="column"
-      border={1}
-      borderColor="yellow"
       {...restProps}
     >
       {children}

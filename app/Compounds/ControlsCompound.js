@@ -8,6 +8,7 @@ import SearchField from '../Components/Controls/SearchField'
 import SearchFieldWrapper from '../Components/Controls/SearchFieldWrapper'
 import SearchFilterWrapper from '../Components/Controls/SearchFilterWrapper'
 import Text from "../Components/Controls/Text"
+import Title from "../Components/Controls/Title"
 import { Grid, Box } from "@material-ui/core"
 import PopulationFilterWrapper from '../Components/Controls/PopulationFilterWrapper'
 import FromFieldWrapper from '../Components/Controls/FromFieldWrapper'
@@ -17,12 +18,14 @@ import ToField from "../Components/Controls/ToField"
 import ClearButtonWrapper from '../Components/Controls/ClearButtonWrapper'
 import ClearButton from "../Components/Controls/ClearButton"
 
+
 export default ControlsCompound
 
 function ControlsCompound({ children }) {
   return (
     <>
       <ControlsSectionWrapper>
+        <Title>Countries Dashboard</Title>
         <FiltersWrapper>
           <Grid item>
             <SearchFilterWrapper>
@@ -68,11 +71,7 @@ function ControlsCompound({ children }) {
           </Grid>
         </FiltersWrapper>
         <ClearButtonWrapper>
-          <ClearButton
-            variant="contained"
-            color="secondary"
-            size="large"
-          >
+          <ClearButton variant="contained" color="secondary" size="large">
             Clear All Filters
           </ClearButton>
         </ClearButtonWrapper>

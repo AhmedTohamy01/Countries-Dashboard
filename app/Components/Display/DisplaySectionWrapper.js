@@ -5,7 +5,7 @@ export default DisplaySectionWrapper
 
 function DisplaySectionWrapper({ children, ...restProps }) {
   return (
-    <Box p={4} border={1} borderColor="yellow" {...restProps}>
+    <Box p={4} {...restProps}>
       {children}
     </Box>
   )
