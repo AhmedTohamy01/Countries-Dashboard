@@ -1,12 +1,12 @@
 
 <h1 align="center">
-  <img title="Outlier" src="https://media-exp1.licdn.com/dms/image/C510BAQE89tgQYze4LQ/company-logo_200_200/0?e=1612396800&v=beta&t=DvoVRPAqyPkFtdxU_8NljWCrvvWi7NOzhhDq8DntJL4" alt="Interlincx Logo" width="200" />
+  <img title="Outlier" src="https://fullclarity.co.uk/wp-content/uploads/2019/01/react-512.png" alt="React Logo" width="270" />
   <br>
-  Interlincx <br>Countries Dashboard Project
+   React <br>Countries Dashboard
 </h1>
 
 <p><font size="3">
-  This is a Countries Dashboard Project built for Interlincx Media using <strong><em>React.JS</em></strong> and <strong><em>Material-UI</em></strong>
+  This is a Countries Dashboard Project built using <strong><em>React.JS</em></strong> and <strong><em>Material-UI</em></strong>
   <br><br> 
 	 This project is about building a dashboard that connects to an open-source API has information about all countries in the world, gets the data from the API, and displays it in a well-formatted table.
 
